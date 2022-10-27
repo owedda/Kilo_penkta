@@ -1,0 +1,25 @@
+{
+    "name": "dariuskasperavicius/clean",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Test\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kasperavicius",
+            "email": "darius.kasperavicius@kilo.health"
+        }
+    ],
+    "require": {
+        "webmozart/assert": "^1.11",
+        "phpunit/phpunit": "^9.5"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.8"
+    },
+    "scripts": {
+        "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon.dist --memory-limit=2G"
+    }
+}
