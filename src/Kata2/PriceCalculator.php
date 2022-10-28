@@ -9,7 +9,7 @@ use App\Kata1\DiscountDecorator;
 use App\Kata1\Price;
 use App\Kata1\ShippingDecorator;
 
-class PriceCalculator implements PriceCalculatorInterface
+final class PriceCalculator implements PriceCalculatorInterface
 {
     //Didn't want to rename classes to not ruin tests. but it's Simple Factory
     public function calculate(float $price, float $discount, float $tax): CostInterface
