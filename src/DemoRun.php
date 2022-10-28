@@ -7,12 +7,11 @@ namespace App;
 use App\Kata1\DiscountDecorator;
 use App\Kata1\Price;
 use App\Kata1\ShippingDecorator;
-use App\Kata1\TaxDecorator;
 use App\Kata2\PriceCalculatorInterface;
 use App\Kata3\DefaultStrategy;
 use App\Kata3\DiscountStrategy;
-use App\Kata3\DpdStrategy;
 use App\Kata3\PriceContext;
+use App\Kata4\DpdStrategyProxy;
 
 class DemoRun
 {
@@ -60,22 +59,16 @@ class DemoRun
     public function kata4(): float
     {
         $strategy = new PriceContext();
-        $strategy->setStrategy(new DpdStrategy());
+        $strategy->setStrategy(new DpdStrategyProxy(new DefaultStrategy()));
 
         return $strategy->getPrice($this->price, $this->discount, $this->shipping);
     }
 
-    /**
-     * @return bool
-     */
     public function isTuesday(): bool
     {
         return $this->isTuesday;
     }
 
-    /**
-     * @param bool $isTuesday
-     */
     public function setIsTuesday(bool $isTuesday): void
     {
         $this->isTuesday = $isTuesday;
